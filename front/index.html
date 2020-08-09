@@ -16,11 +16,24 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <form method="post" action="http://localhost:3001/api/face">
-            <label for="fname">Face Picture</label>
-            <input type="text" id="face" name="face" value="face.jpg"><br>
-            <input type="submit" value="Submit">
-        </form>
+        <div class="select">
+            <label for="videoSource">Video source: </label><select id="videoSource"></select>
+        </div>
+        <video autoplay muted playsinline></video>
+        <!-- <canvas></canvas> -->
+        <img id="resultPic" >
+        <button id="screenshot-button">Take picture</button>
+        <br><br>
 
+        <form method="post" action="http://localhost:3001/api/face" enctype="multipart/form-data">
+            <input type="file" name="avatar"><br>
+            <!-- <input type="submit"> -->
+            <button id="sendToBackend">Send to backend</button>
+        </form>
+        <br>
+        <a href="https://www.npmjs.com/package/react-webcam">Coba</a>
+
+        <script src="jquery.min.js"></script>
+        <script src="main.js"></script>
     </body>
 </html>

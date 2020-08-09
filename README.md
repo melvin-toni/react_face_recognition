@@ -12,7 +12,9 @@ Therefore it is required for the user to give access to the camera.
 This project consists of two main folder, _front/_ and _back/_, which represent **front end** and **back end**
 
 # 4. How to run this project on local environment
-After fork or download this project, if you want to run some command line, dont forget to move into designated folder
+Node and NPM must be installed in your local machine.
+
+After project is forked or downloaded, if you want to run some command line, don't forget to move into designated folder.
 
 For example, if you want to run backend using ```npm start``` then dont forget to open command prompt (cmd) inside the folder
 _react_face_recognition/back_ and vice versa for front end.
@@ -37,3 +39,4 @@ Don't forget to give permission to the browser to access the camera.
 
 # 5. Link
 1. [Capturing Audio & Video in HTML5 by Eric Bidelman](https://www.html5rocks.com/en/tutorials/getusermedia/intro/)
+2. [Web component for React](https://www.npmjs.com/package/react-webcam)
