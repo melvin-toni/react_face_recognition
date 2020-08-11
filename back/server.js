@@ -1,13 +1,15 @@
-require('dotenv').config()
+// require('dotenv').config()
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const cors = require('cors');
 
 app.set('host', 'localhost');
 app.set('port', 3001);
 app.use(express.json());
-app.use(bodyParser.json({limit: '50mb', type: 'application/json'}));
-app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
+app.use(bodyParser.json({limit: '5mb', type: 'application/json'}));
+app.use(bodyParser.urlencoded({limit: '5mb', extended: true}));
+app.use(cors());
 
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
