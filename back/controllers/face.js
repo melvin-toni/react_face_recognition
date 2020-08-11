@@ -19,7 +19,7 @@ let upload = multer({ storage: storage, fileFilter: fileFilter });
 const { success, failed } = require("../helpers/utilities");
 
 exports.create = (req, res) => {
-    // console.log('SENT FROM FRONT END', req.body);
+    console.log('SENT FROM FRONT END', req.body);
     // if (req.body.description==='p') {
     //     return res.send({ 'msg': 'Face detection success' });
     // } else {
@@ -29,8 +29,10 @@ exports.create = (req, res) => {
     upload.single('avatar')(req, res, function (err) {
         if (err instanceof multer.MulterError) {
             console.log(`Multer faced error when uploading => ${err}`);
+            return res.send({ 'msg': 'Server error when uploading' });
         } else if (err) {
             console.log(`Error when uploading => ${err}`);
+            return res.send({ 'msg': 'Error when uploading' });
         }
     
         // return res.status(200);

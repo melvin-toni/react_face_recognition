@@ -12,12 +12,14 @@ export default class CreateExercise extends Component {
         this.onChangeDescription = this.onChangeDescription.bind(this);
         this.onChangeDuration = this.onChangeDuration.bind(this);
         this.onChangeDate = this.onChangeDate.bind(this);
+        this.fileSelectedHandler = this.fileSelectedHandler.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
             username: '',
             description: '',
             duration: 0,
+            selectedFile: null,
             date: new Date(),
             users: [],
             messageResponse: ''
@@ -57,15 +59,24 @@ export default class CreateExercise extends Component {
         })
     }
 
+    fileSelectedHandler = e => {
+        // console.log('XXXXX=>', e.target.files[0])
+        this.setState({
+            selectedFile: e.target.files[0]
+        });
+    };
+
     onSubmit(e) {
         e.preventDefault();
+        // const fd = new FormData();
+        // fd.append('image', this.state.avatar, this.state.avatar.name);
 
         const exercise = {
             username: this.state.username,
             description: this.state.description,
             duration: this.state.duration,
             date: this.state.date,
-            avatar: this.state.avatar
+            avatar: this.state.selectedFile
         }
 
         console.log('exercise', exercise);
@@ -84,7 +95,7 @@ export default class CreateExercise extends Component {
                         <strong>{ this.state.messageResponse }</strong>
                         {/* <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> */}
                     </div> }
-                <form onSubmit={this.onSubmit}>
+                <form onSubmit={this.onSubmit} encType="multipart/form-data">
                     <div className="form-group">
                         <label>Username: </label>
                         <select
@@ -103,8 +114,9 @@ export default class CreateExercise extends Component {
                         <label>Upload image: </label>
                         <input 
                             type="file" 
-                            className="avatar">
-                        </input>
+                            className="form-control"
+                            onChange={this.fileSelectedHandler}
+                        />
                     </div>
                     <div>
                         <label>Description: </label>
