@@ -21,7 +21,7 @@ const { success, failed } = require("../helpers/utilities");
 exports.create = (req, res) => {
     upload.single('avatar')(req, res, function (err) {
         if (err instanceof multer.MulterError) {
-            console.log(`Multer face error when uploading => ${err}`);
+            console.log(`Multer faced error when uploading => ${err}`);
         } else if (err) {
             console.log(`Error when uploading => ${err}`);
         }

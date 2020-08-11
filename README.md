@@ -40,3 +40,4 @@ Don't forget to give permission to the browser to access the camera.
 # 5. Link
 1. [Capturing Audio & Video in HTML5 by Eric Bidelman](https://www.html5rocks.com/en/tutorials/getusermedia/intro/)
 2. [Web component for React](https://www.npmjs.com/package/react-webcam)
+3. [Learn the MERN Stack - Full Tutorial](https://www.youtube.com/watch?v=7CqJlxBYj-M)
