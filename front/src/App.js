@@ -1,11 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.min.js';
+import './App.css';
 
 import Navbar from './components/navbar.component';
-import ExercisesList from './components/exercises-list.component'; 
-import CreateExercise from './components/create-exercise.component'; 
+import Main from './components/main.component';
 
 function App() {
   return (
@@ -13,8 +12,10 @@ function App() {
       <div className="container">
         <Navbar />
         <br />
-        <Route path="/" exact component={ExercisesList} />
-        <Route path="/create" component={CreateExercise} />
+        <Route path="/" exact component={Main} />
+        <footer>
+          <p>Melvin Toni Gustave</p>
+        </footer>
       </div>
     </Router>
   );

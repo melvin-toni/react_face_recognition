@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export default class ExercisesList extends Component {
+export default class Main extends Component {
+    
     state = {
         selectedFile: null,
         messageResponse: ''
@@ -24,7 +25,7 @@ export default class ExercisesList extends Component {
     render() {
         return (
             <div>
-                 { this.state.messageResponse && 
+                { this.state.messageResponse && 
                     <div className="alert alert-warning alert-dismissible fade show" role="alert">
                         <strong>{ this.state.messageResponse }</strong>
                         {/* <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> */}
