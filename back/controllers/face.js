@@ -19,22 +19,23 @@ let upload = multer({ storage: storage, fileFilter: fileFilter });
 const { success, failed } = require("../helpers/utilities");
 
 exports.create = (req, res) => {
-    console.log('SENT FROM FRONT END', req.body);
-    if (req.body.description==='p') {
-        return res.status(200).send({ 'data': 'user created in db madafaka' });
-    } else {
-        return res.status(400).send({ 'data': 'can not find it' });
-    }
+    // console.log('SENT FROM FRONT END', req.body);
+    // if (req.body.description==='p') {
+    //     return res.send({ 'msg': 'Face detection success' });
+    // } else {
+    //     return res.send({ 'msg': 'Face detection failed' });
+    // }
 
-    // upload.single('avatar')(req, res, function (err) {
-    //     if (err instanceof multer.MulterError) {
-    //         console.log(`Multer faced error when uploading => ${err}`);
-    //     } else if (err) {
-    //         console.log(`Error when uploading => ${err}`);
-    //     }
+    upload.single('avatar')(req, res, function (err) {
+        if (err instanceof multer.MulterError) {
+            console.log(`Multer faced error when uploading => ${err}`);
+        } else if (err) {
+            console.log(`Error when uploading => ${err}`);
+        }
     
-    //     return res.status(200);
-    // })
+        // return res.status(200);
+        return res.send({ 'msg': 'Face detection success' });
+    })
 };
 
 exports.read = function(req, res) {

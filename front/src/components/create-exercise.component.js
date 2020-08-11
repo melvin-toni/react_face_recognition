@@ -19,7 +19,8 @@ export default class CreateExercise extends Component {
             description: '',
             duration: 0,
             date: new Date(),
-            users: []
+            users: [],
+            messageResponse: ''
         }
 
     }
@@ -63,25 +64,30 @@ export default class CreateExercise extends Component {
             username: this.state.username,
             description: this.state.description,
             duration: this.state.duration,
-            date: this.state.date
+            date: this.state.date,
+            avatar: this.state.avatar
         }
 
         console.log('exercise', exercise);
 
-        axios.post('http://localhost:3001/api/face', exercise).then(res => console.log('FRONTX', res.data));
-
-        window.location = '/';
+        axios.post('http://localhost:3001/api/face', exercise).then(res => {
+            this.setState({messageResponse: res.data.msg})
+        });
     }
 
     render() {
         return (
             <div>
                 <h3>Create New Exercise</h3>
+                { this.state.messageResponse && 
+                    <div className="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>{ this.state.messageResponse }</strong>
+                        {/* <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> */}
+                    </div> }
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>Username: </label>
-                        <select 
-                            ref="userInput"
+                        <select
                             required
                             className="form-control"
                             value={this.state.username}
@@ -92,6 +98,13 @@ export default class CreateExercise extends Component {
                                 })
                             }
                         </select>
+                    </div>
+                    <div>
+                        <label>Upload image: </label>
+                        <input 
+                            type="file" 
+                            className="avatar">
+                        </input>
                     </div>
                     <div>
                         <label>Description: </label>
