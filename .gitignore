@@ -3,6 +3,7 @@
 # dependencies
 */node_modules
 */uploads
+*/secret
 /.pnp
 .pnp.js
 

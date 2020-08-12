@@ -1,6 +1,6 @@
 # 1. What is React Face Recognition
 Simple web application for face recognition using ***React*** as front end. ***Node*** and ***Express*** as back end.
-***AWS Rekognition / Google Vision API*** for face recognition service.
+***Google Vision API*** for face recognition service.
 
 # 2. How to use
 This web app will uses user cameras to take picture and then recognize the faces inside taken picture, it will return message
@@ -42,3 +42,4 @@ Don't forget to give permission to the browser to access the camera.
 2. [Web component for React](https://www.npmjs.com/package/react-webcam)
 3. [Learn the MERN Stack - Full Tutorial](https://www.youtube.com/watch?v=7CqJlxBYj-M)
 4. [Simple Image Upload with React](https://codeburst.io/react-image-upload-with-kittens-cc96430eaece)
+5. [Secure service account safely](https://stackoverflow.com/questions/48602546/google-cloud-functions-how-to-securely-store-service-account-private-key-when)

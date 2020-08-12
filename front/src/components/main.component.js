@@ -15,11 +15,13 @@ export default class Main extends Component {
     }
 
     fileUploadHandler = () => {
-        const fd = new FormData();
-        fd.append('avatar', this.state.selectedFile, this.state.selectedFile.name);
-        axios.post('http://localhost:3001/api/face', fd).then(res => {
-            this.setState({messageResponse: res.data.msg})
-        });
+        if (this.state.selectedFile) {
+            const fd = new FormData();
+            fd.append('avatar', this.state.selectedFile, this.state.selectedFile.name);
+            axios.post('http://localhost:3001/api/face', fd).then(res => {
+                this.setState({messageResponse: res.data.msg})
+            });
+        }
     }
 
     render() {
@@ -31,6 +33,7 @@ export default class Main extends Component {
                         {/* <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> */}
                     </div> }
                 <input
+                    required
                     type="file"
                     onChange={this.fileSelectedHandler}
                 />
