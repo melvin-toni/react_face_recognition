@@ -24,6 +24,9 @@ _react_face_recognition/back_ and vice versa for front end.
 
 Because this project required camera then you must connect or turn on your camera on your laptop/PC.
 
+To test with mobile phone, connect your PC to the smartphone via USB cable and use remote devices inspection tools in Chrome.
+Please refer to this documentation https://developers.google.com/web/tools/chrome-devtools/remote-debugging/local-server
+
 Don't forget to give permission to the browser to access the camera.
 
 
